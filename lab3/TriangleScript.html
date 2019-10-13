@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle check</title>
+</head>
+<body>
+<script>
+    function checkIfCorrect(obj) {
+        const arrayOfInputs = obj.input.value.split(' ');
+        const arrayOfNumbers = [];
+        for (let i = 0; i < arrayOfInputs.length; i++) {
+            arrayOfNumbers[i] = parseInt(arrayOfInputs[i]);
+        }
+        let a = arrayOfNumbers[0];
+        let b = arrayOfNumbers[1];
+        let c = arrayOfNumbers[2];
+
+        if (a + b > c && a + c > b && b + c > a) {
+            obj.res.value = "The triangle with these sides is possible."
+        } else {
+            obj.res.value = "Nope."
+        }
+    }
+</script>
+<P>Quantity calculation</P>
+<FORM name="form1">
+    Type three numbers representing the lengths of the sides separated by spaces:
+    <input type="text" size=7 name="input"><br>
+    Result:
+    <input type="text" size="30" name="res"><br>
+    <input type="button" size="7" name="check" value="Check" onclick="checkIfCorrect(form1)"><br>
+    <input type="reset" value=Refresh>
+</FORM>
+</body>
+</html>
