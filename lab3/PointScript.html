@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Point check</title>
+</head>
+<body>
+<script>
+    function checkForQuadrant(obj) {
+        const arrayOfInputs = obj.input.value.split(',');
+        const arrayOfNumbers = [];
+        for (let i = 0; i < arrayOfInputs.length; i++) {
+            arrayOfNumbers[i] = parseInt(arrayOfInputs[i]);
+        }
+        let x = arrayOfNumbers[0];
+        let y = arrayOfNumbers[1];
+        if (x >= 0 && y >= 0) obj.res.value = "1nd quadrant.";
+        if (x >= 0 && y <= 0) obj.res.value = "4th quadrant.";
+        if (x <= 0 && y <= 0) obj.res.value = "3rd quadrant";
+        if (x <= 0 && y >= 0) obj.res.value = "2nd quadrant";
+    }
+</script>
+<P>Quantity calculation</P>
+<FORM name="form1">
+    Type x-axis and y-axis coordinates separated by comma:
+    <input type="text" size=7 name="input"><br>
+    Result:
+    <input type="text" size="30" name="res"><br>
+    <input type="button" size="7" name="check" value="Check" onclick="checkForQuadrant(form1)"><br>
+    <input type="reset" value=Refresh>
+</FORM>
+</body>
+</html>
