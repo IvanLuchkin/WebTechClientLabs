@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+    <meta charset="utf-8">
+    <TITLE>Replacing images</TITLE>
+    <script>
+        function replace(obj){
+            let r1 = Number(obj.a1.value);
+            if ((r1 < 1) || (r1 > 3)) {
+                alert("The numbers of the images are incorrect!");
+            } else {
+                let source = document.images[r1 - 1].src;
+                const parent = document.getElementById("result");
+                let img = document.createElement("IMG");
+                img.src = source;
+                img.width = 90;
+                img.textAlign = "center";
+                parent.appendChild(img);
+            }
+        }
+    </script>
+</HEAD>
+<BODY>
+<div style="text-align: center;">
+    <p>Галерея малюнків</p>
+    <IMG src="images/americanPhoto.png" width="90" name="pic1" alt="pic1">
+    <IMG src="images/asianPhoto.png" width="90" name="pic2" alt="pic2">
+    <IMG src="images/australianPhoto.png" width="90" name="pic3" alt="pic3"> <br>
+    <div id="result">
+        Chosen image:
+    </div>
+    <FORM name=form1>
+        The number of the image:<br>
+        <input type="text" name="a1" size=1><br>
+        <input type="button" value="Replace" onClick="replace(form1)">
+        <input type="reset" size="7" value="Refresh">
+    </FORM>
+</div>
+</BODY>
+</HTML>
