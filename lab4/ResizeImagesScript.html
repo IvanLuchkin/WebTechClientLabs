@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+    <meta charset="utf-8">
+    <TITLE>Replacing images</TITLE>
+    <script>
+        function resize(id) {
+            let img = document.getElementById(id);
+            img.style.width = "180";
+        }
+    </script>
+</HEAD>
+<BODY>
+<div style="text-align: center;">
+    <p>Gallery</p>
+    <IMG src="images/americanPhoto.png" width="90" name="pic1" alt="pic1" id="1" onmouseover="resize('1')">
+    <IMG src="images/asianPhoto.png" width="90" name="pic2" alt="pic2" id="2" onmouseover="resize('2')">
+    <IMG src="images/australianPhoto.png" width="90" name="pic3" alt="pic3" id="3" onmouseover="resize('3')"> <br>
+</div>
+</BODY>
+</HTML>
