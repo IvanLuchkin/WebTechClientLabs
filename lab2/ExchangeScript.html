@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <meta charset="utf-8">
+    <title>Exchange</title>
+    <script>
+        function exchange(obj) {
+            let x = obj.x.value;
+            let y = obj.y.value;
+            obj.x.value=y;
+            obj.y.value=x;
+        }
+    </script>
+</HEAD>
+<BODY>
+<P>Exchange</P>
+<FORM name="form1">
+    First value;
+    <input type="text" size=7 name="x"><br>
+    Second value:
+    <input type="text" size=7 name="y" onblur="exchange(form1)"><br>
+    <input type="reset" value=Refresh>
+</FORM>
+</BODY>
+</HTML>

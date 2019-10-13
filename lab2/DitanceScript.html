@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <meta charset="utf-8">
+    <title>Distance calculation</title>
+    <script>
+        function distance(obj) {
+            let x = obj.x.value;
+            let y = obj.y.value;
+            obj.res.value = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+        }
+    </script>
+</HEAD>
+<BODY>
+<P>Distance calculation</P>
+<FORM name="form1">
+    x-axis coordinate:
+    <input type="text" size=7 name="x"><br>
+    y-axis coordinate:
+    <input type="text" size=7 name="y"><br>
+    <input type="text" size="7" name="res" onselect="distance(form1)"><br>
+    <input type="reset" value=Refresh>
+</FORM>
+</BODY>
+</HTML>
