@@ -5,6 +5,33 @@
     <title>Array</title>
 </head>
 <body>
-
+<script>
+    function findQuantityMax(obj) {
+        const arrayOfInputs = obj.input.value.split(' ');
+        const arrayOfNumbers = [];
+        let quantity = 1;
+        for (let i = 0; i < arrayOfInputs.length; i++) {
+            arrayOfNumbers[i] = parseInt(arrayOfInputs[i]);
+        }
+        arrayOfNumbers.sort(function(a, b) {
+            return (a - b);
+        });
+        for (let i = arrayOfNumbers.length; i >= 0; i--) {
+            if (arrayOfNumbers[i - 1] == arrayOfNumbers[i]) {
+                quantity++;
+            }
+        }
+        obj.res.value = quantity;
+    }
+</script>
+<P>Quantity calculation</P>
+<FORM name="form1">
+    Type five numbers separated by spaces:
+    <input type="text" size=7 name="input"><br>
+    Result:
+    <input type="text" size="7" name="res"><br>
+    <input type="button" size="7" name="calculate" onclick="findQuantityMax(form1)"><br>
+    <input type="reset" value=Refresh>
+</FORM>
 </body>
 </html>
