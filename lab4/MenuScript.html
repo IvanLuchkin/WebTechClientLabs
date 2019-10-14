@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu with an arrow</title>
+    <script>
+        function choose(n, action){
+            if (action) {
+                if (document.images[n - 1].name === "american") document.images[n - 1].src = "images/americanPhotoChosen.png";
+                if (document.images[n - 1].name === "australian") document.images[n - 1].src = "images/australianPhotoChosen.png";
+                if (document.images[n - 1].name === "asian") document.images[n - 1].src = "images/asianPhotoChosen.png";
+            } else {
+                if (document.images[n - 1].name === "american") document.images[n - 1].src = "images/americanPhoto.png";
+                if (document.images[n - 1].name === "australian") document.images[n - 1].src = "images/australianPhoto.png";
+                if (document.images[n - 1].name === "asian") document.images[n - 1].src = "images/asianPhoto.png";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Gallery</p>
+    <IMG src="images/americanPhoto.png" width="150" hspace="10" name="american" alt="pic1" onmouseover="choose(1, 1)" onmouseout="choose(1, 0)">
+    <IMG src="images/asianPhoto.png" width="150" hspace="10" name="asian" alt="pic2" onmouseover="choose(2, 1)" onmouseout="choose(2, 0)">
+    <IMG src="images/australianPhoto.png" width="150" hspace="10" name="australian" alt="pic3" onmouseover="choose(3, 1)" onmouseout="choose(3, 0)"> <br>
+</body>
+</html>
