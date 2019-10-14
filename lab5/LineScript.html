@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Line</title>
+    <script>
+        function resize(sizeRequest) {
+            const line = document.getElementById("line");
+            switch(sizeRequest) {
+                case("Small") : line.width = "300"; line.size="1"; break;
+                case("Medium") : line.width = "650"; line.size="3"; break;
+                case("Large") : line.width = "1000"; line.size="9"; break;
+            }
+            return line.width;
+        }
+    </script>
+</head>
+<body>
+<form>
+<pre name="parent">
+    <input type="radio" name="alg" value="Small" onclick="resize('Small')"> Small<br>
+    <input type="radio" name="alg" value="Medium" onclick="resize('Medium')"> Medium<br>
+    <input type="radio" name="alg" value="Large" onclick="resize('Large')"> Large<br>
+    <hr id="line" width="20" color="black">
+</pre>
+</form>
+</body>
+</html>
