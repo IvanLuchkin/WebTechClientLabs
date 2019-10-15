@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <script>
+        function foo(obj) {
+            const age = obj.Age.value;
+            const gender = obj.Gender.value;
+            const maritalStatus = obj.MStatus.value;
+            alert((age == 19) && (gender == "Male") && (maritalStatus == "Unmarried"));
+        }
+    </script>
+</head>
+<body>
+<form name="form">
+<pre>
+    Gender:<br>
+    <input type="radio" name="Gender" value="Male"> Male<br>
+    <input type="radio" name="Gender" value="Female"> Female<br>
+    <input type="radio" name="Gender" value="None"> Not willing to answer<br>
+    Age:<br>
+    <input type="text" name="Age" size="7"><br>
+    Marital status:<br>
+    <input type="radio" name="MStatus" value="Married"> Married<br>
+    <input type="radio" name="MStatus" value="Unmarried"> Unmarried<br>
+    <input type="radio" name="MStatus" value="None"> Not willing to answer<br>
+    <input type="button" name="Finish" value="Finish" size="10" onclick="foo(form)">
+</pre>
+</form>
+</body>
+</html>
