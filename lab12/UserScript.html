@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>User form</title>
+    <script>
+        function test1 (form) {
+            if ((form.text1.value == "")|| ( form.text1.value[0]!=form.text1.value[0].toUpperCase() )){ alert("Incorrect name");}
+            else
+            if (form.text2.value == "" || form.text2.value.indexOf('@', 0) == -1) { alert("Incorrect e-mail");}
+            else
+            if (isNaN(form.telephone.value) || (form.telephone.value=="")){  alert("Incorrect phone number");}
+            else
+                alert("Everything is fine!");
+        }
+    </script>
+
+</head>
+<body>
+    <form name="form">
+        Your name:<br>
+        <input type="text" name="text1"><br>
+        Your e-mail:<br>
+        <input type="text" name="text2"><br>
+        Your phone number: <br>
+        <input type="text" name="telephone"> <br>
+        <input type="button" name="button1" value="Check" onclick="test1(form)"><br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style</title>
+    <script>
+        function changeColor(obj) {
+            let cell = document.getElementById("c" + obj.numInput.value);
+            cell.style.background = obj.color.value;
+        }
+
+        function changeImage(obj) {
+            let cell = document.getElementById("c" + obj.numInput.value);
+            let path = "images/" + obj.image.value + "Photo1.png";
+            cell.style.backgroundImage = "url(" + path + ")";
+        }
+
+        function clearColors() {
+            document.getElementById("c1").style.background = "none";
+            document.getElementById("c2").style.background = "none";
+            document.getElementById("c3").style.background = "none";
+            document.getElementById("c4").style.background = "none";
+        }
+    </script>
+    <style>
+        table {
+            width: 275px;
+            height: 275px;
+            table-layout: fixed;
+            vertical-align: middle;
+            border: 2px black;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        img {
+            width: 100px;
+            height: 80px;
+        }
+        td {
+            padding: 0;
+            border: 2px solid black;
+            height: 30px;
+            text-align: center;
+        }
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+        .td1 {
+            border: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form name="form">
+    <table style="height: 15px; width: 204px">
+        <tr>
+            <td class="td1">
+                <select name="color">
+                    <option value="red"> Red </option>
+                    <option value="green"> Green</option>
+                    <option value="blue"> Blue</option>
+                    <option value="black"> Black</option>
+                    <option value="yellow"> Yellow</option>
+                    <option value="orange"> Orange</option>
+                    <option selected value="white"> White</option>
+                </select><br>
+            </td>
+            <td class="td1">
+                <select name="image">
+                    <option selected value="asian"> Asian cat </option>
+                    <option value="american"> American cat</option>
+                    <option value="australian"> Australian cat</option>
+                    <option value="british"> British cat</option>
+                </select><br>
+            </td>
+        </tr>
+    </table>
+
+    <input type="text" value="" name="numInput" onblur="changeColor(form); changeImage(form)" style="margin-left: 8%;"><br>
+    <input type="reset" value="Reset" onclick="clearColors()" style="margin-left: 38%;"><br>
+</form>
+<table>
+    <tr>
+        <td id="c1">
+
+        </td>
+        <td id="c2">
+
+        </td>
+    </tr>
+    <tr>
+        <td id="c3">
+
+        </td>
+        <td id="c4">
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>

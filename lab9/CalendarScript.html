@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <script>
+            const getWeek = obj => {
+                const date = new Date(obj.date.value);
+                const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+                const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
+                obj.result.value = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+            };
+            JANUARY = 0;
+            FEBRUARY = 1;
+            MARCH = 2;
+            APRIL = 3;
+            MAY = 4;
+            JUNE = 5;
+            JULY = 6;
+            AUGUST = 7;
+            SEPTEMBER = 8;
+            OCTOBER = 9;
+            NOVEMBER = 10;
+            DECEMBER = 11;
+
+
+
+            function getSign(form){
+                let date_of_birth = new Date(form.date.value);
+                let day_of_birth = date_of_birth.getDate();
+                let month_of_birth = date_of_birth.getMonth();
+                let tempDate = new Date();
+                tempDate.setMonth(month_of_birth, day_of_birth);
+                dates_of_signs = [["Aries", new Date(`${tempDate.getFullYear()}`+'-03-21'), new Date(`${tempDate.getFullYear()}`+'-04-20')],
+                    ["Taurus", new Date(`${tempDate.getFullYear()}`+'-04-21'), new Date(`${tempDate.getFullYear()}`+'-05-21')],
+                    ["Gemini", new Date(`${tempDate.getFullYear()}`+'-05-22'), new Date(`${tempDate.getFullYear()}`+'-06-21')],
+                    ["Cancer", new Date(`${tempDate.getFullYear()}`+'-06-22'), new Date(`${tempDate.getFullYear()}`+'-07-22')],
+                    ["Leo", new Date(`${tempDate.getFullYear()}`+'-07-23'), new Date(`${tempDate.getFullYear()}`+'-08-22')],
+                    ["Virgo", new Date(`${tempDate.getFullYear()}`+'-08-23'), new Date(`${tempDate.getFullYear()}`+'-09-23')],
+                    ["Libra", new Date(`${tempDate.getFullYear()}`+'-09-24'), new Date(`${tempDate.getFullYear()}`+'-10-23')],
+                    ["Scorpio", new Date(`${tempDate.getFullYear()}`+'-10-24'), new Date(`${tempDate.getFullYear()}`+'-11-22')],
+                    ["Sagittarius", new Date(`${tempDate.getFullYear()}`+'-11-23'), new Date(`${tempDate.getFullYear()}`+'-12-21')],
+                    ["Capricorn", new Date(`${tempDate.getFullYear()}`+'-12-22'), new Date(`${tempDate.getFullYear()}`+'-01-20')],
+                    ["Aquarius", new Date(`${tempDate.getFullYear()}`+'-01-21'), new Date(`${tempDate.getFullYear()}`+'-02-19')],
+                    ["Pisces", new Date(`${tempDate.getFullYear()}`+'-02-20'), new Date(`${tempDate.getFullYear()}`+'-03-20')]];
+                for(let sign of dates_of_signs){
+                    if(tempDate >= sign[1] && tempDate <= sign[2]){
+                        form.result.value = sign[0];
+                        break;
+                    }
+                }
+            }
+
+            function getSignChineese(form){
+                let year;
+                let color;
+                switch(+form.year.value % 12){
+                    case 0: year = "Monkey"; break;
+                    case 1: year = "Rooster"; break;
+                    case 2: year ="Dog"; break;
+                    case 3: year ="Pig"; break;
+                    case 4: year ="Rat"; break;
+                    case 5: year ="Bull"; break;
+                    case 6: year ="Tiger"; break;
+                    case 7: year = 'Rabbit'; break;
+                    case 8: year = "Dragon"; break;
+                    case 9: year = "Snake"; break;
+                    case 10: year = "Horse"; break;
+                    case 11: year = "Sheep"; break;
+                }
+
+                let k = 1;
+                for(let year = 1900, switcher = 1; year < 2500; year++,switcher++){
+                    if(year == form.year.value){
+                        console.log(year,k);
+                        break;
+                    }
+                    if(switcher == 2){
+                        switcher = 0;
+                        k = (k % 5) + 1;
+                    }
+                }
+
+                switch(k){
+                    case 1: color = "White"; break;
+                    case 2: color = "Black"; break;
+                    case 3: color = "Green"; break;
+                    case 4: color = "Red"; break;
+                    case 5: color = "Yellow"; break;
+                }
+                form.result.value = "Year: " + year + ' => Color: ' + color;
+            }
+        </script>
+        <meta charset="utf-8">
+        
+    </head>
+
+    <body>
+        <div>
+            <form name='week'>
+                <p>Date -> week number</p>
+                <p>Enter Date: <input type="date" name="date" id=""> <button type="button" onclick="getWeek(week)" >Get Week</button></p>
+                <p>Week is: <output name="result"></output></p>
+            </form>
+        </div>
+        <div>
+            <form name='sign'>
+                <p>Zodiac sign</p>
+                <p>Enter Date: <input type="date" name="date" id="" value="2000-03-26"> <button type="button" onclick="getSign(sign)" >Get Sign</button></p>
+                <p>Sign is: <output name="result"></output></p>
+            </form>
+        </div>
+        <div>
+            <form name='sign_chineese'>
+                <p>Eastern zodiac sign</p>
+                <p>Enter Year: <input type="number" name="year" value="2000"> <button type="button" onclick="getSignChineese(sign_chineese)" >Get Sign</button></p>
+                <p><output name="result"></output></p>
+            </form>
+            </div>
+    </body>
+
+
+</html>

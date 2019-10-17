@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <script>
+        function addToCart(form){
+            let select = form.items;
+            let selectedValue = select.options[select.selectedIndex].value;
+            form.result.value = (Number(form.result.value) + Number(selectedValue) * Number(form.amount.value)).toFixed(2);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <h1>Choose the product:</h1>
+    <form name="Shop" >
+        <select name="items">
+            <option value="0.15">Potato(0.15$)</option>
+            <option value="1.5">Milk(1.5$)</option>
+            <option value="0.10">Apple(0.10$)</option>
+            <option value="0.15">Egg(0.15$)</option>
+            <option value="0.10">Carrot(0.10$)</option>
+        </select>
+        <p>Quantity: <input id="enter" type="number" name="amount" value="1"></p>
+        <button type="button" onclick="addToCart(Shop)">Add</button>
+        <p>Total: <output name="result" value='0.0'>0.0</output>$</p>
+    </form>
+</div>
+</body>
+</html>

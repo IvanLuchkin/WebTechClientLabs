@@ -1,0 +1,60 @@
+<html>
+    <head>
+    	<meta charset="utf-8">
+        <script>
+            function wordsCounter(form){
+                let text = form.words.value;
+                form.result.value = text.split(' ').filter(el => el).length;
+            }
+
+            function wordReplacer(form){
+                let old_word = form.old_word.value;
+                let new_word = form.new_word.value;
+                let old_text = form.words.value;
+                form.result.value = old_text.replace(new RegExp(old_word,'g'),new_word);
+            }
+
+            function spaceDeleter(form){
+                let str = form.words.value;
+                let splited_text = str.split(' ');
+                let new_text = '';
+                for(let item of splited_text){
+                    if(item != ''){
+                        new_text += item + " ";
+                    }
+                }
+                form.result.value = new_text;
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <form name='count'>
+                <p>Word counter</p>
+                <p>Enter text:</p>
+                <textarea name='words'></textarea> <br>
+                 <input type="text" name="result" placeholder="Result">
+                <input type="button" onclick='wordsCounter(count)' value="Count">
+               
+            </form>
+        </div>
+        <div>
+            <form name='replace'>
+                <p>Word replacement</p>
+                <p>Enter text:</p> <textarea name='words'></textarea>
+                <p>Which word to replace? <input type="text" name='old_word'> On which? <input type="text" name='new_word'></p>
+                <textarea name="result" placeholder="Result"></textarea>
+                <input type="button" onclick='wordReplacer(replace)' value="Replace">
+            </form>
+        </div>
+
+        <div>
+            <form name='trim'>
+                <p>Fixing spaces</p>
+                <p>Enter the text: </p> <textarea name='words'></textarea> <br>
+                <input type="text" name="result" placeholder="Result">
+                <input type="button" value="Fix" onclick='spaceDeleter(trim)'>
+            </form>
+        </div>
+    </body>
+</html> 

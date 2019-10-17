@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>
+		function reverse (obj)
+		{
+			let x = Number(obj.num1.value );
+			let temp = Number( 0 );
+			while (x)
+			{
+				temp = temp * 10 + x % 10;
+				x = Math.floor(x / 10 );
+			}
+			obj.res.value = temp;
+		}
+		function luck (obj)
+		{
+			let i, a, b, c, d, e, f, x, y, temp = 0;
+
+			for (i=1; i<=999999; i++)
+			{
+				a=Math.floor(i/100000);
+				b=Math.floor(i/10000)-a*10;
+				c=Math.floor(i/1000)-a*100-b*10;
+				d=Math.floor(i/100)-a*1000-b*100-c*10;
+				e=Math.floor(i/10)-a*10000-b*1000-c*100-d*10;
+				f=i-a*100000-b*10000-c*1000-d*100-e*10;
+
+				x=a+b+c;
+				y=d+e+f;
+
+				if (x==y) temp++;
+			}
+			obj.res.value = temp;
+		}
+		function divisors (obj)
+		{
+			let x = obj.num.value;
+			let temp = 0;
+			for (let i = 0; i<x;i++)
+			{
+				if (x%i==0) temp++
+			}
+			obj.res.value = temp+1;
+		}
+	</script>
+	<title>Lab9</title>
+</head>
+<body>
+	<div>
+		<p>Flipping</p>
+		<form name="form1">
+			<input type="text" name="num1" placeholder="Enter the number"> <br>
+			<input type="text" name="res" placeholder="Press the button"> <br>
+			<input type="button" value="Flip" onclick="reverse(form1)">
+		</form>
+	</div>
+	<div>
+		<p>Lucky tickets</p>
+		<form name="form2">
+			<input type="button" value ="Luck" onclick="luck(form2)"> <br>
+			<input type="text" name="res" placeholder="Quantity"> <br>
+
+		</form>
+	</div>
+	<div>
+		<form name="form3">
+			<p>Divisors</p>
+			<input type="text" name="num" placeholder="Input a number" ><br>
+			<input type="text" name="res" placeholder="Quantity"> <br>
+			<input type="button" value="Click" onclick="divisors(form3)">
+		</form>
+	</div>
+</body>
+</html>

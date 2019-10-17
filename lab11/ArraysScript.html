@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>
+		function findMax(obj) {
+			let a = obj.data.value.split(' ');
+			let temp = 0;
+			for (let i = 0; i<a.length;i++) {
+				a[i]=+a[i];
+				if (a[i]<0) temp=temp+1;
+			}
+
+			a.sort();
+			obj.res1.value=a[a.length-1];
+			obj.res2.value=temp;
+		}
+		let img_array = new Array();
+		let parametr;
+		function pres() {
+			for (let i = 0; i < 3; i++) {
+				img_array[i] = new Image(50, 100);
+			}
+			img_array[0].src = 'images/australianPhoto.png';
+			img_array[0].width = 50;
+			img_array[1].src = 'images/asianPhoto.png';
+			img_array[1].width = 50;
+			img_array[2].src = 'images/americanPhoto.png';
+			img_array[2].width = 50;
+			parametr = -1;
+		}
+		function slideShow() {
+			parametr++;
+			document.images[0].src = img_array[parametr].src;
+			pic.width = 500;
+			pic.height = 500;
+			setTimeout("slideShow()", 2000);
+			if (parametr > 1) parametr = -1;
+		}
+	</script>
+	<title>Lab11</title>
+</head>
+<body onload="pres()">
+	<h1>Presentation</h1>
+	<img src="images/americanPhoto.png" name="pic" width="500"><br>
+	<input type="button" value="Look" onclick="slideShow()">
+	<h2>Maximum</h2>
+	<form name="arr">
+		<p>Array: <input type="text" name="data"></p> <br>
+		<p>Мaximum element: <input type="text" name="res1"></p> <br>
+		<p>The quantity of negative numbers: <input type="text" name="res2"></p> <br>
+		<p><input type="button" value="Check" onclick="findMax(arr)"></p>
+	</form>
+</body>
+</html>
